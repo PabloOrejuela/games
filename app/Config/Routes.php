@@ -30,11 +30,15 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('ranking-anios', 'Home::ranking_anios');
+$routes->get('ranking-sistemas', 'Home::ranking_sistemas');
 $routes->get('jugando', 'Jugando::index');
 $routes->get('insert-nuevo', 'Jugando::insert');
 $routes->post('insert-new-game', 'Jugando::insert_new_game');
 $routes->get('eliminar/(:num)', 'Jugando::delete/$1');
+$routes->get('archivar/(:num)', 'Jugando::archivar/$1');
 $routes->get('terminar/(:num)', 'Jugando::terminar_juego/$1');
+$routes->get('registra-partida/(:num)', 'Jugando::registra_partida/$1');
 $routes->get('sistemas', 'Sistemas::index');
 
 /*

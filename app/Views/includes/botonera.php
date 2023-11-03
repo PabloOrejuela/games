@@ -14,6 +14,8 @@
             </li>
                 <li class="menu-item hidden"><a href="<?= site_url(); ?>">Inicio</a></li>
                 <li class="menu-item hidden"><a href="<?= site_url(); ?>jugando">Jugando</a>
+                <li class="menu-item hidden"><a href="<?= site_url(); ?>ranking-anios">Resultados por año</a>
+                <li class="menu-item hidden"><a href="<?= site_url(); ?>ranking-sistemas">Sistemas mas usados</a>
                 <li class="menu-item hidden"><a href="<?= site_url(); ?>sistemas">Sistemas</a>
             </li>
         </ul>

@@ -16,7 +16,7 @@ class JugandoModel extends Model {
     protected $allowedFields    = ['juego', 'idsistemas'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -43,7 +43,7 @@ class JugandoModel extends Model {
         
         $builder = $this->db->table($this->table);
         $builder->select('*');
-        $builder->orderBy('id', 'asc');
+        $builder->orderBy('updated_at', 'desc');
         $builder->join('sistemas', 'sistemas.idsistemas = jugando.idsistemas');
         $query = $builder->get();
         if ($query->getResult() != null) {
@@ -68,5 +68,14 @@ class JugandoModel extends Model {
             }
         }
         return $result;
+    }
+
+    function _registraPartida($juego){
+        $fechaActual = date('Y-m-d H:i:s');
+        //echo '<pre>'.var_export($fechaActual, true).'</pre>';exit;
+        $builder = $this->db->table($this->table);
+        $builder->set('updated_at', $fechaActual);
+        $builder->where('id', $juego->id);
+        $builder->update();
     }
 }

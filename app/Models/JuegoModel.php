@@ -68,4 +68,35 @@ class JuegoModel extends Model {
             return true;
         }
     }
+
+    function _getJuegosAnio($result = NULL){
+        
+        $builder = $this->db->table($this->table);
+        $builder->select('COUNT(idjuegos) as total, anio');
+        $builder->groupBy('anio');
+        $builder->orderBy('total', 'desc');
+        $query = $builder->get();
+        if ($query->getResult() != null) {
+            foreach ($query->getResult() as $row) {
+                $result[] = $row;
+            }
+        }
+        return $result;
+    }
+
+    function _getJuegosSistemas($result = NULL){
+        
+        $builder = $this->db->table($this->table);
+        $builder->select('COUNT(juegos.idsistemas) as total, sistema');
+        $builder->join('sistemas', 'sistemas.idsistemas = juegos.idsistemas');
+        $builder->groupBy('juegos.idsistemas');
+        $builder->orderBy('total', 'desc');
+        $query = $builder->get();
+        if ($query->getResult() != null) {
+            foreach ($query->getResult() as $row) {
+                $result[] = $row;
+            }
+        }
+        return $result;
+    }
 }

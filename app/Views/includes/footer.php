@@ -39,7 +39,7 @@
                 processing:     "Procesamiento en curso...",
                 search:         "Buscar:",
                 lengthMenu:     "Listar _MENU_ filas",
-                info:           "_START_ al _END_ de _TOTAL_ registros",
+                info:           "_START_ al _END_ de _TOTAL1_ registros",
                 infoEmpty:      "0 a 0 de 0 registros",
                 infoFiltered:   "",
                 infoPostFix:    "",

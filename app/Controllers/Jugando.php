@@ -7,7 +7,7 @@ use App\Controllers\BaseController;
 class Jugando extends BaseController{
     public function index(){
         $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
-
+        //echo '<pre>'.var_export($data['jugando'], true).'</pre>';exit;
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
         return view('includes/template', $data);
@@ -22,6 +22,7 @@ class Jugando extends BaseController{
         $this->jugandoModel->delete($id);
 
         $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
         return view('includes/template', $data);
@@ -52,6 +53,21 @@ class Jugando extends BaseController{
         return view('includes/template', $data);
     }
 
+    public function registra_partida($id){
+
+        $anio = date('Y');
+        $juego = $this->jugandoModel->find($id);
+        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        
+        //Grabo en la tabla de juegos
+        $this->jugandoModel->_registraPartida($juego);
+
+        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        $data['title']='Gestión de videojuegos';
+        $data['main_content']='jugando';
+        return view('includes/template', $data);
+    }
+
     public function insert(){
         $data['sistemas'] = $this->sistemaModel->_getAllSistems();
 
@@ -63,6 +79,7 @@ class Jugando extends BaseController{
     public function insert_new_game(){
 
         $anio = date('Y');
+        $total_en_proceso = count($this->jugandoModel->_getJuegosProceso());
         
         $data = array(
             'idsistemas' => $this->request->getPostGet('idsistemas'),
@@ -71,7 +88,10 @@ class Jugando extends BaseController{
 
         if ($data['idsistemas'] != 0) {
             //Grabo en la tabla de juegos
-            $r = $this->jugandoModel->save($data);
+            if ($total_en_proceso <= 35) {
+                $r = $this->jugandoModel->save($data);
+            }
+            
 
             $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
             $data['title']='Gestión de videojuegos';

@@ -13,7 +13,8 @@
     <script src="<?= site_url(); ?>public/js/font-awesome.js"></script>
     <script src="<?= site_url(); ?>public/js/jquery-3.6.0.min.js" ></script>
     <script src="<?= site_url(); ?>public/js/bootstrap.bundle.min.js" ></script>
-    <script src="<?= site_url(); ?>public/js/simple-datatables@latest.js" crossorigin="anonymous"></script>
-    <script src="<?= site_url(); ?>public/js/datatables-simple-demo.js"></script>
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/af-2.5.3/cr-1.6.2/r-2.4.1/datatables.min.css" rel="stylesheet"/>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/af-2.5.3/cr-1.6.2/r-2.4.1/datatables.min.js"></script>
+    <script src="<?= site_url(); ?>public/js/datatables.js" ></script>
 
 </head>
