@@ -201,3 +201,13 @@ footer .copyrights {
     margin-bottom: 250px;
 
 }
+
+#wrap {
+	margin: 0 auto 0 auto;
+	width: 30%;
+	min-width: 250px;
+}
+
+#login{
+    margin-top: 3%;
+}

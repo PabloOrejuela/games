@@ -11,7 +11,7 @@ $routes = Services::routes();
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Login');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -29,7 +29,9 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Login::index');
+$routes->get('/home', 'Home::index');
+$routes->get('/logout', 'Home::logout');
 $routes->get('ranking-anios', 'Home::ranking_anios');
 $routes->get('ranking-sistemas', 'Home::ranking_sistemas');
 $routes->get('jugando', 'Jugando::index');
@@ -40,6 +42,7 @@ $routes->get('archivar/(:num)', 'Jugando::archivar/$1');
 $routes->get('terminar/(:num)', 'Jugando::terminar_juego/$1');
 $routes->get('registra-partida/(:num)', 'Jugando::registra_partida/$1');
 $routes->get('sistemas', 'Sistemas::index');
+$routes->post('validate-login', 'Home::validate_login');
 
 /*
  * --------------------------------------------------------------------

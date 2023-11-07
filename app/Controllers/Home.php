@@ -27,6 +27,61 @@ class Home extends BaseController {
         return view('includes/template', $data);
     }
 
+    public function validate_login(){
+        $data = array(
+            'user' => $this->request->getPostGet('user'),
+            'password' => $this->request->getPostGet('password'),
+        );
+        
+        $this->validation->setRuleGroup('login');
+        
+        if (!$this->validation->withRequest($this->request)->run()) {
+            //Depuración
+            //dd($validation->getErrors());
+            return redirect()->back()->withInput()->with('errors', $this->validation->getErrors());
+        }else{ 
+
+            $usuario = $this->usuarioModel->_getUsuario($data);
+            $ip = $_SERVER['REMOTE_ADDR'];
+            
+            if (isset($usuario) && $usuario != NULL) {
+                //valido el login y pongo el id en sesion  && $usuario->id != 1 
+                echo '<pre>'.var_export($usuario, true).'</pre>';
+                if ($usuario->logged == 1 && $usuario->ip != $ip) {
+                    //Está logueado así que lo deslogueo
+                    $user = [
+                        'id' => $usuario->id,
+                        'is_logged' => 0,
+                        'ip' => 0
+                    ];
+                    $this->usuarioModel->update($usuario->id, $user);
+                }
+
+                $sessiondata = [
+                    //'is_logged' => 1,
+                    'idusuario' => $usuario->id,
+                    'user' => $usuario->user,
+                ];
+        
+                $user = [
+                    'id' => $usuario->id,
+                    'logged' => 1,
+                    'ip' => $ip
+                ];
+                
+                $this->usuarioModel->update($usuario->id, $user);
+                $this->session->set($sessiondata);
+        
+                return redirect()->to('/home');
+
+            }else{
+                $this->logout();
+                return redirect()->to('/');
+            }
+        }
+        
+    }
+
     public function ranking_sistemas(){
 
         $data['total_juegos_sistemas'] = $this->juegoModel->_getJuegosSistemas();
@@ -36,5 +91,19 @@ class Home extends BaseController {
         $data['title']='Gestión de videojuegos';
         $data['main_content']='ranking_sistemas';
         return view('includes/template', $data);
+    }
+
+    public function logout(){
+        //destruyo la session  y salgo
+        
+        $user = [
+            'id' => $this->session->idusuario,
+            'logged' => 0,
+            'ip' => ''
+        ];
+        //echo '<pre>'.var_export($user, true).'</pre>';exit;
+        $this->usuarioModel->_updateLoggin($user);
+        $this->session->destroy();
+        return redirect()->to('/');
     }
 }

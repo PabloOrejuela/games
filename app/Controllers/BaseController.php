@@ -12,6 +12,7 @@ use Psr\Log\LoggerInterface;
 use App\Models\JuegoModel;
 use App\Models\JugandoModel;
 use App\Models\SistemaModel;
+use App\Models\UsuarioModel;
 
 /**
  * Class BaseController
@@ -55,6 +56,7 @@ abstract class BaseController extends Controller {
         $this->juegoModel = new JuegoModel($this->db);
         $this->jugandoModel = new JugandoModel($this->db);
         $this->sistemaModel = new SistemaModel($this->db);
+        $this->usuarioModel = new UsuarioModel($this->db);
 
         // E.g.: $this->session = \Config\Services::session();
         $this->session = \Config\Services::session();
