@@ -11,7 +11,7 @@
             </a>
         </div>
             
-        <table class="table table-bordered table-striped table-hover table-sm" id="datatablesSimple"> 
+        <table class="table table-bordered table-striped table-hover table-sm" id="datatablesSimpleJugando"> 
             <thead>
                 <th>Juego</th>
                 <th>Sistema</th>
