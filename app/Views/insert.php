@@ -1,6 +1,5 @@
 <!-- CONTENT -->
 <section>
-
     <h1>Insertar nuevo juego en proceso</h1>
     <form method="post" action="insert-new-game" name="insert-new-game" >  
         <div class="col-md-6" >

@@ -1,7 +1,7 @@
 <!-- CONTENT -->
 <section>
     <div class="row">
-        <div class="container mt-3 col-md-10 mb-5" id="result">
+        <div class="container mt-3 col-md-12 mb-5" id="result-jugando">
             <h3>Juegos Terminados</h3>
             <table class="table table-bordered table-striped table-hover table-sm" id="datatablesSimple"> 
                 <thead>

@@ -1,7 +1,7 @@
 <!-- CONTENT -->
 <section>
     <div class="row">
-        <div class="container mt-3 col-md-10 mb-5" id="result">
+        <div class="container mt-3 col-md-12 mb-5" id="result">
         <h3>Juegos en proceso</h3>
         
         <div class="col-md-6 mb-3">

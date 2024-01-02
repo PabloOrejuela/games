@@ -88,7 +88,7 @@ class Jugando extends BaseController{
 
         if ($data['idsistemas'] != 0) {
             //Grabo en la tabla de juegos
-            if ($total_en_proceso <= 35) {
+            if ($total_en_proceso <= 38) {
                 $r = $this->jugandoModel->save($data);
             }
             
