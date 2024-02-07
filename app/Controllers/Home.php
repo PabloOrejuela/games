@@ -93,6 +93,7 @@ class Home extends BaseController {
         return view('includes/template', $data);
     }
 
+
     public function logout(){
         //destruyo la session  y salgo
         

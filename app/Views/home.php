@@ -3,7 +3,7 @@
     <div class="row">
         <div class="container mt-3 col-md-12 mb-5" id="result-jugando">
             <h3>Juegos Terminados</h3>
-            <table class="table table-bordered table-striped table-hover table-sm" id="datatablesSimple"> 
+            <table class="table table-bordered table-striped table-hover table-md" id="datatablesSimple"> 
                 <thead>
                     <th>Juego</th>
                     <th>Año</th>
@@ -26,6 +26,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 

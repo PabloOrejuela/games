@@ -44,6 +44,7 @@ $routes->get('registra-partida/(:num)', 'Jugando::registra_partida/$1');
 $routes->get('sistemas', 'Sistemas::index');
 $routes->post('validate-login', 'Home::validate_login');
 
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
