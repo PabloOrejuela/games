@@ -101,4 +101,19 @@ class Jugando extends BaseController{
             return redirect()->back();
         }  
     }
+
+    public function archivar($id){
+        
+        $data = array(
+            'estado' => 0
+        );
+
+        $this->jugandoModel->update($id, $data);
+
+        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        
+        $data['title']='Gestión de videojuegos';
+        $data['main_content']='jugando';
+        return view('includes/template', $data);
+    }
 }

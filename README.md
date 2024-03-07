@@ -1,5 +1,6 @@
 <h3>Cambios</h3>
 <ul>
-    <li>Cambios en tamaño de fuentes</li>
-    <li>Cambio en el órden de los datos en las tablas</li>
+    <li>Activado y mejorado el link de archivar</li>
+    <li>Las listas tienen por defecto 20 elementos</li>
+    
 </ul>

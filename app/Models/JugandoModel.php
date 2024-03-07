@@ -13,7 +13,7 @@ class JugandoModel extends Model {
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['juego', 'idsistemas'];
+    protected $allowedFields    = ['juego', 'idsistemas', 'estado'];
 
     // Dates
     protected $useTimestamps = true;
@@ -43,6 +43,7 @@ class JugandoModel extends Model {
         
         $builder = $this->db->table($this->table);
         $builder->select('*');
+        $builder->where('estado', 1);
         $builder->orderBy('updated_at', 'desc');
         $builder->join('sistemas', 'sistemas.idsistemas = jugando.idsistemas');
         $query = $builder->get();

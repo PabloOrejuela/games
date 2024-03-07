@@ -19,6 +19,7 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
+        pageLength : 20,
         //Ordeno por Ultima partida
         "order": [0, 'asc']
         //"ordering": false
@@ -46,6 +47,7 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
+        pageLength : 20,
         //Ordeno por Ultima partida
         "order": [2, 'desc']
         //"ordering": false
@@ -73,6 +75,7 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
+        pageLength : 20,
         //Ordeno por Ultima partida
         "order": [2, 'desc']
         //"ordering": false
@@ -100,6 +103,7 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
+        pageLength : 20,
         //Ordeno por Ultima partida
         "order": [1, 'desc']
         //"ordering": false
