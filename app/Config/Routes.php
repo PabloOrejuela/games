@@ -34,6 +34,7 @@ $routes->get('/home', 'Home::index');
 $routes->get('/logout', 'Home::logout');
 $routes->get('ranking-anios', 'Home::ranking_anios');
 $routes->get('ranking-sistemas', 'Home::ranking_sistemas');
+$routes->get('ranking-generos', 'Home::ranking_generos');
 $routes->get('jugando', 'Jugando::index');
 $routes->get('insert-nuevo', 'Jugando::insert');
 $routes->post('insert-new-game', 'Jugando::insert_new_game');

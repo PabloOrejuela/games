@@ -14,6 +14,7 @@
         <table class="table table-bordered table-striped table-hover table-md" id="datatablesSimpleJugando"> 
             <thead>
                 <th>Juego</th>
+                <th>Genero</th>
                 <th>Sistema</th>
                 <th>Ultima partida</th>
                 <th>Archivar</th>
@@ -26,6 +27,7 @@
                         foreach ($jugando as $key => $juego) {
                             echo '<tr>';
                             echo '<td>'.$juego->juego.'</td>';
+                            echo '<td>'.$juego->genero.'</td>';
                             echo '<td>'.$juego->sistema.'</td>';
                             echo '<td>
                                     <a type="button" id="btn-editar" href="'.site_url().'registra-partida/'.$juego->id.'" class="link">

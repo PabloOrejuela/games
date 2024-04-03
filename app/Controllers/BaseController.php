@@ -13,6 +13,7 @@ use App\Models\JuegoModel;
 use App\Models\JugandoModel;
 use App\Models\SistemaModel;
 use App\Models\UsuarioModel;
+use App\Models\GeneroModel;
 
 /**
  * Class BaseController
@@ -57,6 +58,7 @@ abstract class BaseController extends Controller {
         $this->jugandoModel = new JugandoModel($this->db);
         $this->sistemaModel = new SistemaModel($this->db);
         $this->usuarioModel = new UsuarioModel($this->db);
+        $this->generoModel = new GeneroModel($this->db);
 
         // E.g.: $this->session = \Config\Services::session();
         $this->session = \Config\Services::session();

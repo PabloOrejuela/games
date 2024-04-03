@@ -42,9 +42,10 @@ class JuegoModel extends Model {
     function _getJuegosacabados($result = NULL){
         
         $builder = $this->db->table($this->table);
-        $builder->select('idjuegos,juego,juegos.anio as anio, created_at, updated_at, juegos.idsistemas as idsistemas, sistema');
+        $builder->select('idjuegos,juego,juegos.anio as anio, created_at, updated_at, juegos.idsistemas as idsistemas, sistema, generos.genero as genero');
         $builder->orderBy('idjuegos', 'asc');
         $builder->join('sistemas', 'sistemas.idsistemas = juegos.idsistemas');
+        $builder->join('generos', 'generos.id = juegos.genero');
         $query = $builder->get();
         if ($query->getResult() != null) {
             foreach ($query->getResult() as $row) {
@@ -59,6 +60,7 @@ class JuegoModel extends Model {
         $builder = $this->db->table($this->table);
         $builder->set('juego', $juego->juego);
         $builder->set('anio', $juego->anio);
+        $builder->set('genero', $juego->genero);
         $builder->set('idsistemas', $juego->idsistemas);
         $builder->insert();
         if ($this->db->transStatus() === false) {
@@ -90,6 +92,22 @@ class JuegoModel extends Model {
         $builder->select('COUNT(juegos.idsistemas) as total, sistema');
         $builder->join('sistemas', 'sistemas.idsistemas = juegos.idsistemas');
         $builder->groupBy('juegos.idsistemas');
+        $builder->orderBy('total', 'desc');
+        $query = $builder->get();
+        if ($query->getResult() != null) {
+            foreach ($query->getResult() as $row) {
+                $result[] = $row;
+            }
+        }
+        return $result;
+    }
+
+    function _getJuegosGeneros($result = NULL){
+        
+        $builder = $this->db->table($this->table);
+        $builder->select('COUNT(juegos.genero) as total, generos.genero as genero');
+        $builder->join('generos', 'generos.id = juegos.genero');
+        $builder->groupBy('juegos.genero');
         $builder->orderBy('total', 'desc');
         $query = $builder->get();
         if ($query->getResult() != null) {

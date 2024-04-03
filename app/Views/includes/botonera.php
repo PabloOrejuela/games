@@ -15,7 +15,8 @@
                 <li class="menu-item hidden"><a href="<?= site_url(); ?>home">Inicio</a></li>
                 <li class="menu-item hidden"><a href="<?= site_url(); ?>jugando">Jugando</a></li>
                 <li class="menu-item hidden"><a href="<?= site_url(); ?>ranking-anios">Resultados por año</a></li>
-                <li class="menu-item hidden"><a href="<?= site_url(); ?>ranking-sistemas">Sistemas mas usados</a></li>
+                <li class="menu-item hidden"><a href="<?= site_url(); ?>ranking-sistemas">Sistemas mas jugados</a></li>
+                <li class="menu-item hidden"><a href="<?= site_url(); ?>ranking-generos">Generos mas jugados</a></li>
                 <li class="menu-item hidden"><a href="<?= site_url(); ?>sistemas">Sistemas</a></li>
                 <li class="menu-item hidden"><a href="<?= site_url(); ?>logout">Salir</a></li>
         </ul>

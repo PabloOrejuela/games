@@ -42,10 +42,19 @@ class JugandoModel extends Model {
     function _getJuegosProceso($result = NULL){
         
         $builder = $this->db->table($this->table);
-        $builder->select('*');
+        $builder->select(
+            $this->table.'.id as id,
+            juego,
+            generos.genero as genero,
+            estado,
+            sistema,
+            anio,
+            updated_at'
+        );
         $builder->where('estado', 1);
         $builder->orderBy('updated_at', 'desc');
         $builder->join('sistemas', 'sistemas.idsistemas = jugando.idsistemas');
+        $builder->join('generos', 'generos.id = jugando.genero');
         $query = $builder->get();
         if ($query->getResult() != null) {
             foreach ($query->getResult() as $row) {

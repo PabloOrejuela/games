@@ -10,6 +10,19 @@
         </div>
         <div class="col-md-6" >
             <div class="form-group mb-3">
+                <label class="form-group-text" for="idsistemas">Género:</label>
+                <select class="form-select" id="inputGroupSelect01" name="idsistemas">
+                    <option value="0" selected>-- Seleccionar --</option>
+                    <?php
+                        foreach ($generos as $key => $genero) {
+                            echo ' <option value="'.$genero->id.'">'.$genero->genero.'</option> ';
+                        } 
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6" >
+            <div class="form-group mb-3">
                 <label class="form-group-text" for="idsistemas">Sistema:</label>
                 <select class="form-select" id="inputGroupSelect01" name="idsistemas">
                     <option value="0" selected>Elija un sistema...</option>

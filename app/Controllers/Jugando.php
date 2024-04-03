@@ -37,6 +37,7 @@ class Jugando extends BaseController{
         );*/
         //Obtener datos del juego
         $juego = $this->jugandoModel->find($id);
+
         $juego->anio = $anio;
         //echo '<pre>'.var_export($juego, true).'</pre>';exit;
 
@@ -70,6 +71,7 @@ class Jugando extends BaseController{
 
     public function insert(){
         $data['sistemas'] = $this->sistemaModel->_getAllSistems();
+        $data['generos'] = $this->generoModel->_getGeneros();
 
         $data['title']='Gestión de videojuegos';
         $data['main_content']='insert';

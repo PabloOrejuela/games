@@ -93,6 +93,17 @@ class Home extends BaseController {
         return view('includes/template', $data);
     }
 
+    public function ranking_generos(){
+
+        $data['total_juegos_generos'] = $this->juegoModel->_getJuegosGeneros();
+
+        //echo '<pre>'.var_export($data['total_anio'], true).'</pre>';exit;
+
+        $data['title']='Gestión de videojuegos';
+        $data['main_content']='ranking_generos';
+        return view('includes/template', $data);
+    }
+
 
     public function logout(){
         //destruyo la session  y salgo
