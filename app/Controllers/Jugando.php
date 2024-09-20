@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 
 class Jugando extends BaseController{
     public function index(){
-        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        $data['jugando'] = $this->jugandoModel->where('estado', 1)->join('sistemas','sistemas.idsistemas=jugando.idsistemas')->findAll();
         //echo '<pre>'.var_export($data['jugando'], true).'</pre>';exit;
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
@@ -21,7 +21,7 @@ class Jugando extends BaseController{
 
         $this->jugandoModel->delete($id);
 
-        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        $data['jugando'] = $this->jugandoModel->where('estado', 1)->join('sistemas','sistemas.idsistemas=jugando.idsistemas')->findAll();
         
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
@@ -32,9 +32,6 @@ class Jugando extends BaseController{
 
         $anio = date('Y');
         
-        /*$data = array(
-            'id' => $this->request->getPostGet('id')
-        );*/
         //Obtener datos del juego
         $juego = $this->jugandoModel->find($id);
 
@@ -43,12 +40,17 @@ class Jugando extends BaseController{
 
         //Grabo en la tabla de juegos
         $r = $this->juegoModel->_setJuegoTerminado($juego);
-        //Borro de los jugando
+
+        //Cambio estado en la tabla jugando
+        $juego = array(
+            'estado' => 0
+        );
+
         if ($r) {
-            $this->jugandoModel->delete($juego->id);
+            $this->jugandoModel->update($id, $juego);
         }
 
-        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        $data['jugando'] = $this->jugandoModel->where('estado', 1)->join('sistemas','sistemas.idsistemas=jugando.idsistemas')->findAll();
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
         return view('includes/template', $data);
@@ -58,12 +60,12 @@ class Jugando extends BaseController{
 
         $anio = date('Y');
         $juego = $this->jugandoModel->find($id);
-        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        $data['jugando'] = $this->jugandoModel->where('estado', 1)->join('sistemas','sistemas.idsistemas=jugando.idsistemas')->findAll();
         
         //Grabo en la tabla de juegos
         $this->jugandoModel->_registraPartida($juego);
 
-        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        $data['jugando'] = $this->jugandoModel->where('estado', 1)->join('sistemas','sistemas.idsistemas=jugando.idsistemas')->findAll();
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
         return view('includes/template', $data);
@@ -94,8 +96,7 @@ class Jugando extends BaseController{
                 $r = $this->jugandoModel->save($data);
             }
             
-
-            $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+            $data['jugando'] = $this->jugandoModel->where('estado', 1)->join('sistemas','sistemas.idsistemas=jugando.idsistemas')->findAll();
             $data['title']='Gestión de videojuegos';
             $data['main_content']='jugando';
             return view('includes/template', $data);
@@ -112,7 +113,7 @@ class Jugando extends BaseController{
 
         $this->jugandoModel->update($id, $data);
 
-        $data['jugando'] = $this->jugandoModel->_getJuegosProceso();
+        $data['jugando'] = $this->jugandoModel->where('estado', 1)->join('sistemas','sistemas.idsistemas=jugando.idsistemas')->findAll();
         
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
