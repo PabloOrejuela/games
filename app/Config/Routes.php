@@ -44,6 +44,7 @@ $routes->get('terminar/(:num)', 'Jugando::terminar_juego/$1');
 $routes->get('registra-partida/(:num)', 'Jugando::registra_partida/$1');
 $routes->get('sistemas', 'Sistemas::index');
 $routes->post('validate-login', 'Home::validate_login');
+$routes->get('lista-juegos-sistema/(:num)', 'Home::lista_juegos_sistema/$1');
 
 
 /*

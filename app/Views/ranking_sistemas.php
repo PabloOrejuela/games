@@ -15,7 +15,9 @@
                     foreach ($total_juegos_sistemas as $key => $value) {
                         echo '<tr>';
                         echo '<td>'.$num.'</td>';
-                        echo '<td>'.$value->sistema.'</td>';
+                        echo '<td>
+                                <a type="button" id="btn-editar" href="'.site_url().'lista-juegos-sistema/'.$value->id.'" class="link">'.$value->sistema.'</a>
+                            </td>';
                         echo '<td>'.$value->total.'</td>';
                         echo '</tr>';
                         $num += 1;

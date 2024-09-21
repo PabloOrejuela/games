@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class SistemaModel extends Model {
     protected $DBGroup          = 'default';
     protected $table            = 'sistemas';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'idsistemas';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'object';

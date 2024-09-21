@@ -89,7 +89,7 @@ class JuegoModel extends Model {
     function _getJuegosSistemas($result = NULL){
         
         $builder = $this->db->table($this->table);
-        $builder->select('COUNT(juegos.idsistemas) as total, sistema');
+        $builder->select($this->table.'.idsistemas as id,COUNT(juegos.idsistemas) as total, sistema');
         $builder->join('sistemas', 'sistemas.idsistemas = juegos.idsistemas');
         $builder->groupBy('juegos.idsistemas');
         $builder->orderBy('total', 'desc');

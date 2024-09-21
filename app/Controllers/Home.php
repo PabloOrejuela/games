@@ -82,11 +82,32 @@ class Home extends BaseController {
         
     }
 
+    /**
+     * undocumented function summary
+     *
+     * Undocumented function long description
+     *
+     * @param Type $var Description
+     * @return type
+     * @throws conditon
+     **/
+    public function lista_juegos_sistema($id){
+        
+        $data['sistema'] = $this->sistemaModel->find($id);
+        $data['listaJuegos'] = $this->juegoModel->select('juego,generos.genero as genero,anio,updated_at')
+                                                ->join('generos', 'juegos.genero=generos.id')
+                                                ->where('idsistemas', $id)->orderBy('juego', 'asc')->findAll();
+        //echo '<pre>'.var_export($data['listaJuegos'], true).'</pre>';exit;
+        $data['title']='Juegos';
+        $data['main_content']='lista_juegos_sistema';
+        return view('includes/template', $data);
+    }
+
     public function ranking_sistemas(){
 
         $data['total_juegos_sistemas'] = $this->juegoModel->_getJuegosSistemas();
 
-        //echo '<pre>'.var_export($data['total_anio'], true).'</pre>';exit;
+        //echo '<pre>'.var_export($data['total_juegos_sistemas'], true).'</pre>';exit;
 
         $data['title']='Gestión de videojuegos';
         $data['main_content']='ranking_sistemas';
