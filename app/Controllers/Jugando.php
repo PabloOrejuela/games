@@ -6,7 +6,11 @@ use App\Controllers\BaseController;
 
 class Jugando extends BaseController{
     public function index(){
-        $data['jugando'] = $this->jugandoModel->where('estado', 1)->join('sistemas','sistemas.idsistemas=jugando.idsistemas')->findAll();
+        $data['jugando'] = $this->jugandoModel
+            ->where('estado', 1)
+            ->join('sistemas','sistemas.idsistemas=jugando.idsistemas')
+            ->join('generos','generos.id=jugando.genero')
+            ->findAll();
         //echo '<pre>'.var_export($data['jugando'], true).'</pre>';exit;
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';

@@ -1,5 +1,9 @@
 <h3>Cambios</h3>
 <ul>
-    <li>Implementada la lista de juegos del sistema</li>
-    <li>Mejorados los rnakins de géneros y de systemas mas usados, ahora implementan Datatables</li>
+    <li>Ahora en el grid de Jugando ya muestra también el género</li>
+</ul>
+
+<h3>FIX</h3>
+<ul>
+    <li>Corregido el join con la tabla géneros en el grid de jugando</li>
 </ul>
