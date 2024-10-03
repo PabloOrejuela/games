@@ -44,7 +44,7 @@ class SistemaModel extends Model {
         $builder = $this->db->table($this->table);
         $builder->select('*');
         $builder->orderBy('sistema', 'asc');
-        $builder->join('empresa', 'empresa.id = sistemas.empresa');
+        $builder->join('empresa', 'empresa.id = sistemas.idempresa');
         $query = $builder->get();
         if ($query->getResult() != null) {
             foreach ($query->getResult() as $row) {

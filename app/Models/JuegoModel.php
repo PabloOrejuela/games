@@ -42,10 +42,10 @@ class JuegoModel extends Model {
     function _getJuegosacabados($result = NULL){
         
         $builder = $this->db->table($this->table);
-        $builder->select('idjuegos,juego,juegos.anio as anio, created_at, updated_at, juegos.idsistemas as idsistemas, sistema, generos.genero as genero');
-        $builder->orderBy('idjuegos', 'asc');
-        $builder->join('sistemas', 'sistemas.idsistemas = juegos.idsistemas');
-        $builder->join('generos', 'generos.id = juegos.genero');
+        $builder->select('juegos.id as id,juego,juegos.anio as anio, created_at, updated_at, idsistemas, sistema, genero');
+        $builder->orderBy('id', 'asc');
+        $builder->join('sistemas', 'sistemas.id = juegos.idsistemas');
+        $builder->join('generos', 'generos.id = juegos.idgenero');
         $query = $builder->get();
         if ($query->getResult() != null) {
             foreach ($query->getResult() as $row) {
@@ -74,7 +74,7 @@ class JuegoModel extends Model {
     function _getJuegosAnio($result = NULL){
         
         $builder = $this->db->table($this->table);
-        $builder->select('COUNT(idjuegos) as total, anio');
+        $builder->select('COUNT(id) as total, anio');
         $builder->groupBy('anio');
         $builder->orderBy('total', 'desc');
         $query = $builder->get();
@@ -89,8 +89,8 @@ class JuegoModel extends Model {
     function _getJuegosSistemas($result = NULL){
         
         $builder = $this->db->table($this->table);
-        $builder->select($this->table.'.idsistemas as id,COUNT(juegos.idsistemas) as total, sistema');
-        $builder->join('sistemas', 'sistemas.idsistemas = juegos.idsistemas');
+        $builder->select('idsistemas as id,COUNT(idsistemas) as total, sistema');
+        $builder->join('sistemas', 'sistemas.id = juegos.idsistemas');
         $builder->groupBy('juegos.idsistemas');
         $builder->orderBy('total', 'desc');
         $query = $builder->get();
@@ -105,9 +105,9 @@ class JuegoModel extends Model {
     function _getJuegosGeneros($result = NULL){
         
         $builder = $this->db->table($this->table);
-        $builder->select('COUNT(juegos.genero) as total, generos.genero as genero');
-        $builder->join('generos', 'generos.id = juegos.genero');
-        $builder->groupBy('juegos.genero');
+        $builder->select('COUNT(genero) as total, genero');
+        $builder->join('generos', 'generos.id = juegos.idgenero');
+        $builder->groupBy('juegos.idgenero');
         $builder->orderBy('total', 'desc');
         $query = $builder->get();
         if ($query->getResult() != null) {

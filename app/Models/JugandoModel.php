@@ -46,7 +46,7 @@ class JugandoModel extends Model {
         $builder = $this->db->table($this->table);
         $builder->select('*');
         $builder->orderBy('id', 'asc');
-        $builder->join('sistemas', 'sistemas.idsistemas = jugando.idsistemas');
+        $builder->join('sistemas', 'sistemas.id = jugando.idsistemas');
         $query = $builder->get();
         if ($query->getResult() != null) {
             foreach ($query->getResult() as $row) {

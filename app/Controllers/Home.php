@@ -94,8 +94,8 @@ class Home extends BaseController {
     public function lista_juegos_sistema($id){
         
         $data['sistema'] = $this->sistemaModel->find($id);
-        $data['listaJuegos'] = $this->juegoModel->select('juego,generos.genero as genero,anio,updated_at')
-                                                ->join('generos', 'juegos.genero=generos.id')
+        $data['listaJuegos'] = $this->juegoModel->select('juego,genero,anio,updated_at')
+                                                ->join('generos', 'juegos.idgenero=generos.id')
                                                 ->where('idsistemas', $id)->orderBy('juego', 'asc')->findAll();
         //echo '<pre>'.var_export($data['listaJuegos'], true).'</pre>';exit;
         $data['title']='Juegos';
