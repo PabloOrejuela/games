@@ -56,11 +56,12 @@ class JuegoModel extends Model {
     }
 
     function _setJuegoTerminado($juego){
+        
         $this->db->transBegin();
         $builder = $this->db->table($this->table);
         $builder->set('juego', $juego->juego);
         $builder->set('anio', $juego->anio);
-        $builder->set('genero', $juego->genero);
+        $builder->set('idgenero', $juego->idgenero);
         $builder->set('idsistemas', $juego->idsistemas);
         $builder->insert();
         if ($this->db->transStatus() === false) {
