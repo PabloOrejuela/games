@@ -37,7 +37,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#datatablesSimpleJugando').DataTable({
         "responsive": true, 
-        "order": [[3, 'desc']],
+        "order": [[4, 'desc']],
             lengthMenu: [
                 [5, 10, 25, -1],
                 [5, 10, 25, 'Todos']

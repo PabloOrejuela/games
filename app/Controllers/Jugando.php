@@ -8,7 +8,7 @@ class Jugando extends BaseController{
     
     public function _getJugando(){
         $jugando = $this->jugandoModel
-            ->select('jugando.id as id,juego,estado,sistema,genero,updated_at,created_at')
+            ->select('jugando.id as id,juego,estado,sistema,genero,updated_at,created_at,favorito')
             ->where('estado', 1)
             ->join('sistemas','sistemas.id=jugando.idsistemas')
             ->join('generos','generos.id=jugando.idgenero')
@@ -22,6 +22,30 @@ class Jugando extends BaseController{
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
         return view('includes/template', $data);
+    }
+
+    function activaFavorito(){
+        
+        //Recibo el id
+        $id = $this->request->getPostGet('id');
+
+        $estadoFavorito = $this->jugandoModel->find($id);
+
+        if ($estadoFavorito->favorito == 1) {
+            $juego = [
+            'favorito' => 0
+        ];
+        } else {
+            $juego = [
+            'favorito' => 1
+        ];
+        }
+        
+        //Cambio el estado de favorito al idjuego
+        $this->jugandoModel->update($id, $juego);
+
+        $data['resultado'] = "Exito";
+        echo json_encode($data);
     }
 
     public function delete($id){

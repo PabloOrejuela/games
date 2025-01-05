@@ -215,3 +215,9 @@ footer .copyrights {
     font-size: 0.8em;
     margin-bottom: 0px;
 }
+
+#btn-favorito{
+    margin-left: 5px;
+    padding: 1%;
+    cursor: pointer;
+}

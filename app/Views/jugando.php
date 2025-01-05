@@ -14,6 +14,7 @@
         <table class="table table-bordered table-striped table-hover table-md" id="datatablesSimpleJugando"> 
             <thead>
                 <th>Juego</th>
+                <th>Favorito</th>
                 <th>Genero</th>
                 <th>Sistema</th>
                 <th>Ultima partida</th>
@@ -27,6 +28,26 @@
                         foreach ($jugando as $key => $juego) {
                             echo '<tr>';
                             echo '<td>'.$juego->juego.'</td>';
+                            if ($juego->favorito == 0) {
+                                echo '<td>
+                                        <img 
+                                            src="'.site_url().'public/img/favorito-off.png" 
+                                            width="15" 
+                                            id="btn-favorito" 
+                                            onclick="javascript:activaFavorito('.$juego->id.')"
+                                        >
+                                    </td>';
+                            } else {
+                                echo '<td>
+                                        <img 
+                                            src="'.site_url().'public/img/favorito-on.png" 
+                                            width="15" 
+                                            id="btn-favorito" 
+                                            onclick="javascript:activaFavorito('.$juego->id.')"
+                                        >
+                                    </td>';
+                            }
+                            
                             echo '<td>'.$juego->genero.'</td>';
                             echo '<td>'.$juego->sistema.'</td>';
                             echo '<td>
@@ -70,5 +91,4 @@
         </div>
     </div>
 </section>
-
-
+<script src="<?= site_url(); ?>public/js/jugando.js"></script>
