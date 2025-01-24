@@ -13,7 +13,7 @@ class JugandoModel extends Model {
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['juego', 'idsistemas', 'favorito', 'estado'];
+    protected $allowedFields    = ['juego', 'idsistemas', 'favorito', 'estado','idgenero'];
 
     // Dates
     protected $useTimestamps = true;

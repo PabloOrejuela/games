@@ -78,7 +78,8 @@ class Jugando extends BaseController{
 
         //Cambio estado en la tabla jugando
         $juego = array(
-            'estado' => 0
+            'estado' => 0,
+            'favorito' => 0
         );
 
         if ($r) {
@@ -119,19 +120,20 @@ class Jugando extends BaseController{
     public function insert_new_game(){
 
         $anio = date('Y');
-        $total_en_proceso = count($this->jugandoModel->_getJuegosProceso());
+        $total_en_proceso = count($this->jugandoModel->where('estado', 1)->findAll());
         
         $data = array(
             'idsistemas' => $this->request->getPostGet('idsistemas'),
+            'idgenero' => $this->request->getPostGet('genero'),
             'juego' => $this->request->getPostGet('juego')
         );
 
         if ($data['idsistemas'] != 0) {
             //Grabo en la tabla de juegos
             if ($total_en_proceso <= 38) {
-                $r = $this->jugandoModel->save($data);
+                $r = $this->jugandoModel->insert($data);
             }
-            
+            echo $this->db->getLastQuery();
             $data['jugando'] = $this->_getJugando();
 
             $data['title']='Gestión de videojuegos';

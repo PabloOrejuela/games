@@ -3,7 +3,7 @@ let btnFavorito = document.getElementById("btn-favorito")
 
 const activaFavorito = (id) => {
     $.ajax({
-        url: 'activaFavorito',
+        url: './activaFavorito',
         method: 'GET',
         dataType: 'json',
         data: {

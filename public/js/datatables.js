@@ -39,8 +39,8 @@ $(document).ready(function () {
         "responsive": true, 
         "order": [[4, 'desc']],
             lengthMenu: [
-                [5, 10, 25, -1],
-                [5, 10, 25, 'Todos']
+                [5, 10, 15, 25, 50, -1],
+                [5, 10, 15, 25, 50, 'Todos']
         ],
         language: {
             processing: 'Procesando...',
@@ -61,11 +61,11 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
-        pageLength : 10,
+        pageLength : 25,
         "autoWidth": false,
         "dom": "<'row'<'col-sm-12 col-md-8'l><'col-md-12 col-md-2'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
-                "<'row'<'col-sm-12 col-md-6'i><'col-sm-12 col-md-6'p>>"
+                "<'row'<'col-sm-12 col-md-6'i><'col-sm-12 col-md-6'p>>",
         //"ordering": false
     });
 });
@@ -75,8 +75,8 @@ $(document).ready(function () {
         "responsive": true, 
         "order": [[2, 'desc']],
             lengthMenu: [
-                [5, 10, 25, -1],
-                [5, 10, 25, 'Todos']
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, 'Todos']
         ],
         language: {
             processing: 'Procesando...',
@@ -97,7 +97,7 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
-        pageLength : 10,
+        pageLength : 5,
         //"ordering": false
         "autoWidth": false,
         "dom": "<'row'<'col-sm-12 col-md-8'l><'col-md-12 col-md-2'f>>" +
