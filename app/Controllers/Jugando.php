@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 class Jugando extends BaseController{
+
+    private $maxJuegosJugando = 40;
     
     public function _getJugando(){
         $jugando = $this->jugandoModel
@@ -19,6 +21,7 @@ class Jugando extends BaseController{
 
     public function index(){
         $data['jugando'] = $this->_getJugando();
+        //echo '<pre>'.var_export($this->maxJuegosJugando, true).'</pre>';exit;
         $data['title']='Gestión de videojuegos';
         $data['main_content']='jugando';
         return view('includes/template', $data);
@@ -130,10 +133,10 @@ class Jugando extends BaseController{
 
         if ($data['idsistemas'] != 0) {
             //Grabo en la tabla de juegos
-            if ($total_en_proceso <= 38) {
+            if ($total_en_proceso <= $this->maxJuegosJugando) {
                 $r = $this->jugandoModel->insert($data);
             }
-            echo $this->db->getLastQuery();
+            
             $data['jugando'] = $this->_getJugando();
 
             $data['title']='Gestión de videojuegos';

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#datatablesSimple').DataTable({
         "responsive": true, 
-        "order": [[2, 'desc']],
+        "order": [[1, 'asc']],
             lengthMenu: [
                 [5, 10, 25, -1],
                 [5, 10, 25, 'Todos']
@@ -109,10 +109,10 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#datatablesSimpleRankingSystemas').DataTable({
         "responsive": true, 
-        "order": [[2, 'desc']],
+        "order": [[0, 'asc']],
             lengthMenu: [
-                [5, 10, 25, -1],
-                [5, 10, 25, 'Todos']
+                [5, 10, 25, 30,-1],
+                [5, 10, 25, 30, 'Todos']
         ],
         language: {
             processing: 'Procesando...',
@@ -133,7 +133,7 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
-        pageLength : 10,
+        pageLength : 30,
         //"ordering": false
         "autoWidth": false,
         "dom": "<'row'<'col-sm-12 col-md-8'l><'col-md-12 col-md-2'f>>" +

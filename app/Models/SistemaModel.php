@@ -39,18 +39,18 @@ class SistemaModel extends Model {
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    function _getAllSistems($result = NULL){
+    // function _getAllSistems($result = NULL){
         
-        $builder = $this->db->table($this->table);
-        $builder->select('sistemas.id as idsistemas,sistema,anio,empresa.id as idempresa,empresa');
-        $builder->orderBy('sistema', 'asc');
-        $builder->join('empresa', 'empresa.id = sistemas.idempresa');
-        $query = $builder->get();
-        if ($query->getResult() != null) {
-            foreach ($query->getResult() as $row) {
-                $result[] = $row;
-            }
-        }
-        return $result;
-    }
+    //     $builder = $this->db->table($this->table);
+    //     $builder->select('sistemas.id as idsistemas,sistema,anio,empresa.id as idempresa,empresa');
+    //     $builder->orderBy('sistema', 'asc');
+    //     $builder->join('empresa', 'empresa.id = sistemas.idempresa');
+    //     $query = $builder->get();
+    //     if ($query->getResult() != null) {
+    //         foreach ($query->getResult() as $row) {
+    //             $result[] = $row;
+    //         }
+    //     }
+    //     return $result;
+    // }
 }

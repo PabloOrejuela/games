@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 class Home extends BaseController {
+
     public function index(){
 
         $data['juegos'] = $this->juegoModel->_getJuegosacabados();
@@ -93,11 +94,16 @@ class Home extends BaseController {
      **/
     public function lista_juegos_sistema($id){
         
-        $data['sistema'] = $this->sistemaModel->find($id);
-        $data['listaJuegos'] = $this->juegoModel->select('juego,genero,anio,updated_at')
+        $data['sistema'] = $this->sistemaModel->where('id', $id)->findAll();
+
+        $data['listaJuegos'] = $this->juegoModel->select('juego,genero,juegos.anio as anio,updated_at')
+                                                ->join('sistemas', 'sistemas.id=juegos.idsistemas')
                                                 ->join('generos', 'juegos.idgenero=generos.id')
-                                                ->where('idsistemas', $id)->orderBy('juego', 'asc')->findAll();
-        //echo '<pre>'.var_export($data['listaJuegos'], true).'</pre>';exit;
+                                                ->where('sistemas.id', $id)->orderBy('juego', 'asc')->findAll();
+                                                
+        //echo $this->db->getLastQuery();
+
+        // echo '<pre>'.var_export($data['listaJuegos'] , true).'</pre>';exit;
         $data['title']='Juegos';
         $data['main_content']='lista_juegos_sistema';
         return view('includes/template', $data);

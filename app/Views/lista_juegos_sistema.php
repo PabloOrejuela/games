@@ -2,7 +2,7 @@
 <section>
     <div class="row">
         <div class="container mt-3 col-md-12 mb-5" id="result-jugando">
-            <h3>Juegos terminados del sistema: <?= $sistema->sistema; ?></h3>
+            <h3>Juegos terminados del sistema: <?= $sistema[0]->sistema; ?></h3>
             <table class="table table-bordered table-striped table-hover table-md" id="datatablesSimpleListaJuegos"> 
                 <thead>
                     <th>No.</th>
