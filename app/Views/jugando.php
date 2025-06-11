@@ -1,3 +1,4 @@
+<link href="<?= site_url(); ?>public/css/jugando.css" rel="stylesheet" />
 <!-- CONTENT -->
 <section>
     <div class="row">

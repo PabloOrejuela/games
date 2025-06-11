@@ -1,3 +1,4 @@
+<link href="<?= site_url(); ?>public/css/home.css" rel="stylesheet" />
 <!-- CONTENT -->
 <section>
     <div class="row">

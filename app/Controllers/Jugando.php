@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 
 class Jugando extends BaseController{
 
-    private $maxJuegosJugando = 40;
+    private $maxJuegosJugando = 50;
     
     public function _getJugando(){
         $jugando = $this->jugandoModel
@@ -112,7 +112,11 @@ class Jugando extends BaseController{
     }
 
     public function insert(){
-        $data['sistemas'] = $this->sistemaModel->_getAllSistems();
+        $data['sistemas'] = $this->sistemaModel
+            ->select('sistemas.id as idsistemas,sistema,anio,empresa.id as idempresa,empresa')
+            ->join('empresa', 'empresa.id = sistemas.idempresa')
+            ->orderBy('sistema', 'asc')
+            ->findAll();
         $data['generos'] = $this->generoModel->_getGeneros();
 
         $data['title']='Gestión de videojuegos';

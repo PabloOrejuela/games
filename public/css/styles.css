@@ -193,7 +193,7 @@ footer .copyrights {
 }
 
 #datatablesSimple{
-    font-size: 0.9em;
+    font-size: 1em;
     margin-bottom: 0px;
 }
 
@@ -209,11 +209,6 @@ footer .copyrights {
 
 #login{
     margin-top: 3%;
-}
-
-#datatablesSimpleJugando{
-    font-size: 0.8em;
-    margin-bottom: 0px;
 }
 
 #btn-favorito{

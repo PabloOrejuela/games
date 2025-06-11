@@ -61,7 +61,7 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
-        pageLength : 25,
+        pageLength : 10,
         "autoWidth": false,
         "dom": "<'row'<'col-sm-12 col-md-8'l><'col-md-12 col-md-2'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
@@ -133,7 +133,7 @@ $(document).ready(function () {
                     sortDescending: ": activar para ordenar descendentemente"
                 }
         },
-        pageLength : 30,
+        pageLength : 10,
         //"ordering": false
         "autoWidth": false,
         "dom": "<'row'<'col-sm-12 col-md-8'l><'col-md-12 col-md-2'f>>" +
