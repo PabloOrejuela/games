@@ -49,6 +49,7 @@ header li.menu-item a {
     border-radius: 5px;
     margin: 5px 0;
     height: 38px;
+    font-size: 1.2em;
     line-height: 36px;
     padding: .4rem .65rem;
     text-align: center;
@@ -193,7 +194,7 @@ footer .copyrights {
 }
 
 #datatablesSimple{
-    font-size: 1em;
+    font-size: 1.2em;
     margin-bottom: 0px;
 }
 
@@ -203,12 +204,8 @@ footer .copyrights {
 
 #wrap {
 	margin: 0 auto 0 auto;
-	width: 30%;
+	width: 40%;
 	min-width: 250px;
-}
-
-#login{
-    margin-top: 3%;
 }
 
 #btn-favorito{

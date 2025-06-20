@@ -1,10 +1,9 @@
 <h3>Cambios</h3>
 <ul>
-    <li>Implementada la lista de juegos por sistema</li>
-    <li>Revisado y corregido el formulario de insertar nuevo juego</li>
+    <li>Algunos cambios en los tamaños de fuente del menú y del login</li>
 </ul>
 
 <h3>FIX</h3>
 <ul>
-    <li>Corregidos errores en jugando model</li>
+    <li></li>
 </ul>
